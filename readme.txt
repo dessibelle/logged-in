@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: chokladzingo
 Donate link: http://dessibelle.se/
-Tags: comments, spam
+Tags: logged, in, login, log, redirect, users, visitors
 Requires at least: 2.7
 Tested up to: 3.2.1
 Stable tag: 0.1
