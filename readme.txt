@@ -4,13 +4,13 @@ Donate link: http://dessibelle.se/
 Tags: logged, in, login, log, redirect, users, visitors
 Requires at least: 2.7
 Tested up to: 3.2.1
-Stable tag: 0.1
+Stable tag: 1.0
 
 Allows you to close your site to non-logged in users, by redirecting them to the login page, displaying a message or a specific template file.
 
 == Description ==
 
-Allows you to close your site to non-logged in users, by redirecting them to the login page, displaying a message or a specific template file. Currently settings are available only as filters, but some GUI options are planned for a future release.
+Allows you to close your site to non-logged in users, by redirecting them to the login page, displaying a message or a specific template file. The plugin can be configured to redirect visitors to login page, display a short message using your themes layout or display a fallback file located in your `stylesheet_directory`.
 
 == Installation ==
 
@@ -20,6 +20,10 @@ This section describes how to install the plugin and get it working.
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Changelog ==
+
+= 1.0 =
+* Added settings GUI
+* Added localization support and Swedish localization
 
 = 1.0b1 =
 * Initial Release

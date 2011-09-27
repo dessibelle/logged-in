@@ -1,0 +1,112 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Logged in\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-27 13:28+0100\n"
+"PO-Revision-Date: 2011-09-27 13:28+0100\n"
+"Last-Translator: Simon Fransson <simon@dessibelle.se>\n"
+"Language-Team: Hobo Code <simon@dessibelle.se>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Textdomain-Support: yes"
+
+#: logged-in.php:55
+#@ logged_in
+msgid "This site is currently not available. Please come back later."
+msgstr "Denna sida är tyvärr inte tillgänglig för tillfället. Vänligen kom tillbaka senare."
+
+#: logged-in.php:75
+#@ loggedin
+msgid "Redirect to login page"
+msgstr "Omdirigera till inloggningssida"
+
+#: logged-in.php:79
+#@ loggedin
+msgid "Display a message"
+msgstr "Visa ett meddelande"
+
+#: logged-in.php:83
+#@ loggedin
+msgid "Display theme fallback file"
+msgstr "Visa en fil"
+
+#: logged-in.php:205
+#@ loggedin
+msgid "Unauthenticated visitors"
+msgstr "Icke inloggade besökare"
+
+#: logged-in.php:210
+#@ loggedin
+msgid "Action"
+msgstr "Åtgärd"
+
+#: logged-in.php:216
+#@ loggedin
+msgid "Message"
+msgstr "Meddelande"
+
+#: logged-in.php:222
+#@ loggedin
+msgid "Fallback filename"
+msgstr "Filnamn"
+
+#: logged-in.php:240
+#@ loggedin
+msgid "Settings"
+msgstr "Inställningar"
+
+#: logged-in.php:256
+#@ loggedin
+msgid "Let's you decide how to handle visitors that are not logged in."
+msgstr "Låter dig ange hur du vill hantera besökare som inte har loggat in på sidan."
+
+#: logged-in.php:276
+#, php-format
+#@ loggedin
+msgid "This message will be placed in between calls to %s and %s of your theme."
+msgstr "Detta meddelande kommer placeras mellan anrop till %s och %s i ditt tema."
+
+#: logged-in.php:284
+#@ loggedin
+msgid "Place a file with this name in your <code>stylesheet_directory</code>."
+msgstr "Placera en fil med detta namnet i din <code>stylesheet_directory</code>-mapp."
+
+#. translators: plugin header field 'Name'
+#: logged-in.php:0
+#@ loggedin
+msgid "Logged in"
+msgstr ""
+
+#. translators: plugin header field 'PluginURI'
+#: logged-in.php:0
+#@ loggedin
+msgid "http://dessibelle.se/"
+msgstr ""
+
+#. translators: plugin header field 'Description'
+#: logged-in.php:0
+#@ loggedin
+msgid "A plugin that allows you to close the entire site to non-logged in users."
+msgstr ""
+
+#. translators: plugin header field 'Author'
+#: logged-in.php:0
+#@ loggedin
+msgid "Simon Fransson"
+msgstr ""
+
+#. translators: plugin header field 'Version'
+#: logged-in.php:0
+#@ loggedin
+msgid "1.0"
+msgstr ""
+
