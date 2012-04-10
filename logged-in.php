@@ -5,7 +5,7 @@ Plugin URI: http://dessibelle.se/
 Description: A plugin that allows you to close the entire site to non-logged in users.
 Author: Simon Fransson
 Plugin URI: http://dessibelle.se/
-Version: 1.0
+Version: 1.0.1
 Text Domain: loggedin
 Domain Path: /languages
 */
