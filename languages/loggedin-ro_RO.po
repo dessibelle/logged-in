@@ -1,0 +1,111 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Logged in\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-27 13:28+0100\n"
+"PO-Revision-Date: 2012-04-10 11:58+0100\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Romanian\n"
+"X-Poedit-Country: Romania\n"
+"Language-Team: Web Geeks\n"
+"Last-Translator: Simon Fransson <simon@dessibelle.se>\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: .\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#@ logged_in
+#: logged-in.php:55
+msgid "This site is currently not available. Please come back later."
+msgstr "Acest site nu este in prezent disponibil. Va rugam sa se intoarca mai tarziu."
+
+#@ loggedin
+#: logged-in.php:75
+msgid "Redirect to login page"
+msgstr "Redirect la pagina de logare"
+
+#@ loggedin
+#: logged-in.php:79
+msgid "Display a message"
+msgstr "Afisarea unui mesaj de"
+
+#@ loggedin
+#: logged-in.php:83
+msgid "Display theme fallback file"
+msgstr "Afisare tema rezerva Fisier"
+
+#@ loggedin
+#: logged-in.php:205
+msgid "Unauthenticated visitors"
+msgstr "Vizitatori neautentificat"
+
+#@ loggedin
+#: logged-in.php:210
+msgid "Action"
+msgstr "Actiune"
+
+#@ loggedin
+#: logged-in.php:216
+msgid "Message"
+msgstr "Mesaj"
+
+#@ loggedin
+#: logged-in.php:222
+msgid "Fallback filename"
+msgstr "Fallback filename"
+
+#@ loggedin
+#: logged-in.php:240
+msgid "Settings"
+msgstr "Setari"
+
+#@ loggedin
+#: logged-in.php:256
+msgid "Let's you decide how to handle visitors that are not logged in."
+msgstr "Sa decideti cum sa se ocupe de vizitatori care nu sunt logat."
+
+#@ loggedin
+#: logged-in.php:276
+#, php-format
+msgid "This message will be placed in between calls to %s and %s of your theme."
+msgstr "Acest mesaj va fi plasat in intre apeluri la %s si %s de tema."
+
+#@ loggedin
+#: logged-in.php:284
+msgid "Place a file with this name in your <code>stylesheet_directory</code>."
+msgstr "Plasati un fisier cu acest nume in dumneavoastra <code>stylesheet_directory</code>."
+
+#@ loggedin
+#. translators: plugin header field 'Name'
+#: logged-in.php:0
+msgid "Logged in"
+msgstr "Logat"
+
+#@ loggedin
+#. translators: plugin header field 'PluginURI'
+#: logged-in.php:0
+msgid "http://dessibelle.se/"
+msgstr "http://dessibelle.se/"
+
+#@ loggedin
+#. translators: plugin header field 'Description'
+#: logged-in.php:0
+msgid "A plugin that allows you to close the entire site to non-logged in users."
+msgstr "Un plug-in care va permite sa inchideti tot site-ul pentru a non-logat utilizatorilor."
+
+#@ loggedin
+#. translators: plugin header field 'Author'
+#: logged-in.php:0
+msgid "Simon Fransson"
+msgstr "Simon Fransson"
+
+#@ loggedin
+#. translators: plugin header field 'Version'
+#: logged-in.php:0
+msgid "1.0"
+msgstr "1.0"
+
