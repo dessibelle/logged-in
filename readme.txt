@@ -21,6 +21,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 1.0.1 =
+* Added romaninan localization
+
 = 1.0 =
 * Added settings GUI
 * Added localization support and Swedish localization
@@ -38,3 +41,6 @@ List of available filters and their expected return values.
 * `logged_in_fallback_filename`: A fallback file located in your `stylesheet_directory`, used by the `fallback` action.
 * `logged_in_fallback_path`: A full path to the fallback file, used by the `fallback` action.
 * `logged_in_message`: A message displayed by the `message` action.
+
+== Credits ==
+* Romanian localization by [Web Hosting Geeks](http://webhostinggeeks.com/)
