@@ -23,6 +23,7 @@ This section describes how to install the plugin and get it working.
 
 = 1.0.1 =
 * Added setting to allow visitors to access feeds
+* Fixed bug affecting IIS servers, causing redirection loops
 * Added romaninan localization
 
 = 1.0 =

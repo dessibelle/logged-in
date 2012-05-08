@@ -127,7 +127,8 @@ class LoggedIn
 	protected function urlIsValid($request_url = null)
 	{
 		if (!$request_url) {
-			$request_url = sprintf('http%s://%s%s', (empty($_SERVER['HTTPS']) ? '' : 's'), $_SERVER['HTTP_HOST'], $_SERVER['REQUEST_URI']);
+		    // $_SERVER['HTTPS'] might be set to 'off' on IIS servers
+		    $request_url = sprintf('http%s://%s%s', (empty($_SERVER['HTTPS']) || strtolower($_SERVER['HTTPS']) == 'off' ? '' : 's'), $_SERVER['HTTP_HOST'], $_SERVER['REQUEST_URI']);
 			$request_url = trailingslashit($request_url);
 		}
 		$login_url = wp_login_url();
