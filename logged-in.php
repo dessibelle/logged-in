@@ -54,6 +54,7 @@ class LoggedIn
 		$this->defaults['action'] = 'login';
 		$this->defaults['message'] = '<h1>' . __('This site is currently not available. Please come back later.', 'logged_in') . '</h1>';
 		$this->defaults['fallback'] = 'fallback.php';
+		$this->defaults['allow_feeds'] = false;
 		$this->message = get_option($this->slugPrefix('message'), $this->defaults['message']);
 		add_action('init', array(&$this, 'validateRequest'));
 	}
@@ -127,10 +128,27 @@ class LoggedIn
 	{
 		if (!$request_url) {
 			$request_url = sprintf('http%s://%s%s', (empty($_SERVER['HTTPS']) ? '' : 's'), $_SERVER['HTTP_HOST'], $_SERVER['REQUEST_URI']);
+			$request_url = trailingslashit($request_url);
 		}
 		$login_url = wp_login_url();
 		
-		return !(!is_admin() && !is_user_logged_in() && strpos($request_url, $login_url) === false);
+		$url_is_valid = !(!is_admin() && !is_user_logged_in() && stripos($request_url, $login_url) === false);
+		
+		if ($this->allowFeeds()) {
+		    $feed_urls = array(
+    		    get_bloginfo('rdf_url'),
+    		    get_bloginfo('rss_url'),
+    		    get_bloginfo('rss2_url'),
+    		    get_bloginfo('atom_url'),
+    		    get_bloginfo('comments_rss2_url'),
+    		);
+
+    	    $is_feed_url = in_array($request_url, $feed_urls);
+    	    
+    	    $url_is_valid |= $is_feed_url;
+		}
+		
+		return $url_is_valid; 
 	}
 	
 	/*          
@@ -224,10 +242,17 @@ class LoggedIn
 			$this->options_page,
 			$this->slugPrefix('settings'));
 		
+		add_settings_field($this->slugPrefix('allow_feeds'),
+			__('Allow feeds', 'loggedin'),
+			array(&$this, 'renderAllowFeedsSetting'),
+			$this->options_page,
+			$this->slugPrefix('settings'));
+		
 		register_setting($this->options_page, $this->slugPrefix('action'));
 		register_setting($this->options_page, $this->slugPrefix('message'));
 		register_setting($this->options_page, $this->slugPrefix('fallback'), array(&$this, 'sanitizeSettingFallback'));
-		
+		register_setting($this->options_page, $this->slugPrefix('allow_feeds'), array(&$this, 'sanitizeSettingAllowFeeds'));
+        		
 		add_filter('plugin_action_links', array(&$this, 'actionLinks'), 10, 2 );
 	}
 	
@@ -241,15 +266,6 @@ class LoggedIn
 			array_unshift($links, $settings_link);
 		}
 		return $links;
-	}
-
-	
-	public function sanitizeSettingFallback($val = null, $moo = null) {
-		if (empty($val)) {
-			return $this->defaults['fallback'];
-		}
-		
-		return $val;
 	}
 	
 	public function renderSettingsHeader() {
@@ -284,6 +300,35 @@ class LoggedIn
 		$description = __('Place a file with this name in your <code>stylesheet_directory</code>.', 'loggedin');
 		
 		printf('<input name="%s" id="%s" value="%s" class="code" /> <span class="description">%s</span>', $name, $name, $val, $description);
+	}
+	
+	public function renderAllowFeedsSetting() {
+	    $val = $this->allowFeeds();
+		$name = $this->slugPrefix('allow_feeds');
+		$description = __('Enable to let visitors view feeds even when not logged in.', 'loggedin');
+		
+		printf('<input type="checkbox" name="%s" id="%s" value="1" %s /> <span class="description">%s</span>', $name, $name, checked($val, true, false), $description);
+		
+	}
+	
+	
+	
+	public function sanitizeSettingFallback($val = null, $moo = null) {
+		if (empty($val)) {
+			return $this->defaults['fallback'];
+		}
+		
+		return $val;
+	}
+	
+	public function sanitizeSettingAllowFeeds($val = null, $val2 = null) {
+	    return (bool)$val;
+	}
+	
+	/* Setting Accessors */
+	
+	public function allowFeeds() {
+	    return (bool)get_option($this->slugPrefix('allow_feeds'), $this->defaults['allow_feeds']);
 	}
 }
 
