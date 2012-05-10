@@ -5,7 +5,7 @@ Plugin URI: http://dessibelle.se/
 Description: A plugin that allows you to close the entire site to non-logged in users.
 Author: Simon Fransson
 Plugin URI: http://dessibelle.se/
-Version: 1.0.1
+Version: 1.0.2
 Text Domain: loggedin
 Domain Path: /languages
 */
@@ -55,6 +55,7 @@ class LoggedIn
 		$this->defaults['message'] = '<h1>' . __('This site is currently not available. Please come back later.', 'logged_in') . '</h1>';
 		$this->defaults['fallback'] = 'fallback.php';
 		$this->defaults['allow_feeds'] = false;
+		$this->defaults['allow_xml_rpc'] = false;
 		$this->message = get_option($this->slugPrefix('message'), $this->defaults['message']);
 		add_action('init', array(&$this, 'validateRequest'));
 	}
@@ -132,24 +133,38 @@ class LoggedIn
 			$request_url = trailingslashit($request_url);
 		}
 		$login_url = wp_login_url();
-		
 		$url_is_valid = !(!is_admin() && !is_user_logged_in() && stripos($request_url, $login_url) === false);
 		
+		/* Is feed? */
 		if ($this->allowFeeds()) {
-		    $feed_urls = array(
-    		    get_bloginfo('rdf_url'),
-    		    get_bloginfo('rss_url'),
-    		    get_bloginfo('rss2_url'),
-    		    get_bloginfo('atom_url'),
-    		    get_bloginfo('comments_rss2_url'),
-    		);
-
-    	    $is_feed_url = in_array($request_url, $feed_urls);
-    	    
-    	    $url_is_valid |= $is_feed_url;
+    	    $url_is_valid |= $this->urlIsFeed($request_url);
+		}
+		
+		/* Is XML-RPC ? */
+		if ($this->allowXMLRPC()) {
+    	    $url_is_valid |= $this->urlIsXMLRPC($request_url);
 		}
 		
 		return $url_is_valid; 
+	}
+	
+	protected function urlIsFeed($request_url) {
+	    $feed_urls = array(
+		    get_bloginfo('rdf_url'),
+		    get_bloginfo('rss_url'),
+		    get_bloginfo('rss2_url'),
+		    get_bloginfo('atom_url'),
+		    get_bloginfo('comments_rss2_url'),
+		);
+
+        return in_array($request_url, $feed_urls);
+	}
+	
+	protected function urlIsXMLRPC($request_url) {
+	    $xmlrpc_url = trailingslashit(get_bloginfo('wpurl')) . 'xmlrpc.php';
+	    
+	    $length = strlen($xmlrpc_url);
+        return (substr(strtolower($request_url), 0, $length) === strtolower($xmlrpc_url));
 	}
 	
 	/*          
@@ -249,10 +264,17 @@ class LoggedIn
 			$this->options_page,
 			$this->slugPrefix('settings'));
 		
+		add_settings_field($this->slugPrefix('allow_xml_rpc'),
+			__('Allow XML-RPC', 'loggedin'),
+			array(&$this, 'renderAllowXMLRPCSetting'),
+			$this->options_page,
+			$this->slugPrefix('settings'));
+		
 		register_setting($this->options_page, $this->slugPrefix('action'));
 		register_setting($this->options_page, $this->slugPrefix('message'));
 		register_setting($this->options_page, $this->slugPrefix('fallback'), array(&$this, 'sanitizeSettingFallback'));
-		register_setting($this->options_page, $this->slugPrefix('allow_feeds'), array(&$this, 'sanitizeSettingAllowFeeds'));
+		register_setting($this->options_page, $this->slugPrefix('allow_feeds'), array(&$this, 'sanitizeBoolean'));
+		register_setting($this->options_page, $this->slugPrefix('allow_xml_rpc'), array(&$this, 'sanitizeBoolean'));
         		
 		add_filter('plugin_action_links', array(&$this, 'actionLinks'), 10, 2 );
 	}
@@ -313,6 +335,16 @@ class LoggedIn
 	}
 	
 	
+	public function renderAllowXMLRPCSetting() {
+	    $val = $this->allowXMLRPC();
+		$name = $this->slugPrefix('allow_xml_rpc');
+		$description = __('Enable XML-RPC calls.', 'loggedin');
+		
+		printf('<input type="checkbox" name="%s" id="%s" value="1" %s /> <span class="description">%s</span>', $name, $name, checked($val, true, false), $description);
+		
+	}
+	
+	
 	
 	public function sanitizeSettingFallback($val = null, $moo = null) {
 		if (empty($val)) {
@@ -322,7 +354,7 @@ class LoggedIn
 		return $val;
 	}
 	
-	public function sanitizeSettingAllowFeeds($val = null, $val2 = null) {
+	public function sanitizeBoolean($val = null, $val2 = null) {
 	    return (bool)$val;
 	}
 	
@@ -330,6 +362,10 @@ class LoggedIn
 	
 	public function allowFeeds() {
 	    return (bool)get_option($this->slugPrefix('allow_feeds'), $this->defaults['allow_feeds']);
+	}
+	
+	public function allowXMLRPC() {
+	    return (bool)get_option($this->slugPrefix('allow_xml_rpc'), $this->defaults['allow_xml_rpc']);
 	}
 }
 

@@ -4,7 +4,7 @@ Donate link: http://dessibelle.se/
 Tags: logged, in, login, log, redirect, users, visitors
 Requires at least: 2.7
 Tested up to: 3.3.2
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 
 Allows you to close your site to non-logged in users, by redirecting them to the login page, displaying a message or a specific template file.
 
@@ -20,6 +20,9 @@ This section describes how to install the plugin and get it working.
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Changelog ==
+
+= 1.0.2 =
+* Added setting to allow visitors to access XML-RPC
 
 = 1.0.1 =
 * Added setting to allow visitors to access feeds
