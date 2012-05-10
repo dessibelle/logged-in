@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: Logged in
-Plugin URI: http://dessibelle.se/
+Plugin URI: http://wordpress.org/extend/plugins/logged-in/
 Description: A plugin that allows you to close the entire site to non-logged in users.
 Author: Simon Fransson
-Plugin URI: http://dessibelle.se/
+Author URI: http://dessibelle.se/
 Version: 1.0.2
 Text Domain: loggedin
 Domain Path: /languages
