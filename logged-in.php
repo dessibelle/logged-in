@@ -145,7 +145,7 @@ class LoggedIn
     	    $url_is_valid |= $this->urlIsXMLRPC($request_url);
 		}
 		
-		return $url_is_valid; 
+		return apply_filters($this->slugPrefix('url_is_valid'), $url_is_valid, $request_url); 
 	}
 	
 	protected function urlIsFeed($request_url) {

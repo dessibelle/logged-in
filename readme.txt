@@ -40,6 +40,7 @@ This section describes how to install the plugin and get it working.
 
 List of available filters and their expected return values.
 
+* `url_is_valid`: Let's you validate all URL's by returning true or false. Parameters indicating validity and URL.
 * `logged_in_cb`: A custom callback to handle the case of users who are not logged in of your choice, instead of using one of the built in actions. You should return a function name or pointer.
 * `logged_in_action`: An action to take when requested URL is not allowed (valid return values are: `fallback`, `message` and `login`).
 * `logged_in_redirect_status`: HTTP redirect status code to use when redirecting to login page. Defaults to 302.
