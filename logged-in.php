@@ -5,7 +5,7 @@ Plugin URI: http://wordpress.org/extend/plugins/logged-in/
 Description: A plugin that allows you to close the entire site to non-logged in users.
 Author: Simon Fransson
 Author URI: http://dessibelle.se/
-Version: 1.0.2
+Version: 1.0.3b1
 Text Domain: loggedin
 Domain Path: /languages
 */
@@ -191,7 +191,7 @@ class LoggedIn
 	{
 		$status = apply_filters($this->slugPrefix('redirect_status'), 302);
 		
-		wp_redirect( wp_login_url( site_url() ), $status );
+		wp_redirect( wp_login_url( home_url() ), $status );
 		$this->kill();
 	}
 	
