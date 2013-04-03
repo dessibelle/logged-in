@@ -2,88 +2,102 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Logged in\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-08 17:52+0100\n"
-"PO-Revision-Date: 2012-05-08 17:53+0100\n"
+"POT-Creation-Date: 2013-04-03 13:53+0100\n"
+"PO-Revision-Date: 2013-04-03 13:53+0100\n"
 "Last-Translator: Simon Fransson <simon@dessibelle.se>\n"
 "Language-Team: Hobo Code <simon@dessibelle.se>\n"
+"Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Poedit-Language: Swedish\n"
-"X-Poedit-Country: SWEDEN\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
 "X-Poedit-Basepath: .\n"
 "X-Textdomain-Support: yes\n"
+"X-Generator: Poedit 1.5.5\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 # @ logged_in
 #: ../logged-in.php:55
 msgid "This site is currently not available. Please come back later."
-msgstr "Denna sida är tyvärr inte tillgänglig för tillfället. Vänligen kom tillbaka senare."
+msgstr ""
+"Denna sida är tyvärr inte tillgänglig för tillfället. Vänligen kom tillbaka "
+"senare."
 
 # @ loggedin
-#: ../logged-in.php:76
+#: ../logged-in.php:77
 msgid "Redirect to login page"
 msgstr "Omdirigera till inloggningssida"
 
 # @ loggedin
-#: ../logged-in.php:80
+#: ../logged-in.php:81
 msgid "Display a message"
 msgstr "Visa ett meddelande"
 
 # @ loggedin
-#: ../logged-in.php:84
+#: ../logged-in.php:85
 msgid "Display theme fallback file"
 msgstr "Visa en fil"
 
 # @ loggedin
-#: ../logged-in.php:224
+#: ../logged-in.php:240
 msgid "Unauthenticated visitors"
 msgstr "Icke inloggade besökare"
 
 # @ loggedin
-#: ../logged-in.php:229
+#: ../logged-in.php:245
 msgid "Action"
 msgstr "Åtgärd"
 
 # @ loggedin
-#: ../logged-in.php:235
+#: ../logged-in.php:251
 msgid "Message"
 msgstr "Meddelande"
 
 # @ loggedin
-#: ../logged-in.php:241
+#: ../logged-in.php:257
 msgid "Fallback filename"
 msgstr "Filnamn"
 
-#: ../logged-in.php:247
+#: ../logged-in.php:263
 msgid "Allow feeds"
 msgstr "Tillåt syndikeringsflöden"
 
+#: ../logged-in.php:269
+msgid "Allow XML-RPC"
+msgstr "Tillåt XML-RPC"
+
 # @ loggedin
-#: ../logged-in.php:266
+#: ../logged-in.php:289
 msgid "Settings"
 msgstr "Inställningar"
 
 # @ loggedin
-#: ../logged-in.php:273
+#: ../logged-in.php:296
 msgid "Let's you decide how to handle visitors that are not logged in."
-msgstr "Låter dig ange hur du vill hantera besökare som inte har loggat in på sidan."
+msgstr ""
+"Låter dig ange hur du vill hantera besökare som inte har loggat in på sidan."
 
 # @ loggedin
-#: ../logged-in.php:293
+#: ../logged-in.php:316
 #, php-format
-msgid "This message will be placed in between calls to %s and %s of your theme."
-msgstr "Detta meddelande kommer placeras mellan anrop till %s och %s i ditt tema."
+msgid ""
+"This message will be placed in between calls to %s and %s of your theme."
+msgstr ""
+"Detta meddelande kommer placeras mellan anrop till %s och %s i ditt tema."
 
 # @ loggedin
-#: ../logged-in.php:301
+#: ../logged-in.php:324
 msgid "Place a file with this name in your <code>stylesheet_directory</code>."
-msgstr "Placera en fil med detta namnet i din <code>stylesheet_directory</code>-mapp."
+msgstr ""
+"Placera en fil med detta namnet i din <code>stylesheet_directory</code>-mapp."
 
-#: ../logged-in.php:309
+#: ../logged-in.php:332
 msgid "Enable to let visitors view feeds even when not logged in."
 msgstr "Låter besökare se RSS- och Atom-flöden även om de inte är inloggade."
 
+#: ../logged-in.php:342
+msgid "Enable XML-RPC calls."
+msgstr "Aktivera XML-RPC-anslutningar."
