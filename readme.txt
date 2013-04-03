@@ -3,8 +3,8 @@ Contributors: chokladzingo
 Donate link: http://dessibelle.se/
 Tags: logged, in, login, log, redirect, users, visitors
 Requires at least: 2.7
-Tested up to: 3.3.2
-Stable tag: 1.0.3
+Tested up to: 3.5.1
+Stable tag: 1.0.4
 
 Allows you to close your site to non-logged in users, by redirecting them to the login page, displaying a message or a specific template file.
 
@@ -20,6 +20,9 @@ This section describes how to install the plugin and get it working.
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Changelog ==
+
+= 1.0.4 =
+* **Settings are now located under Settings / General on WordPress 3.5 or higher**, as the Privacy page has been removed.
 
 = 1.0.3 =
 * Fixed a bug that caused the redirect action to incorrectly redirect to the the admin section when WordPress is installed in a subdirectory, even when accessing the front page.
