@@ -5,7 +5,7 @@ Plugin URI: http://wordpress.org/extend/plugins/logged-in/
 Description: A plugin that allows you to close the entire site to non-logged in users.
 Author: Simon Fransson
 Author URI: http://dessibelle.se/
-Version: 1.0.4
+Version: 1.0.5b1
 Text Domain: loggedin
 Domain Path: /languages
 */
@@ -71,21 +71,25 @@ class LoggedIn
 		return sprintf("%s_%s", self::FILTER_DOMAIN, $name);
 	}
 
-	public static function actions() {
-		return array(
+	public function actions() {
+		$actions = array(
 			'login' => array(
 				'label' => __('Redirect to login page', 'loggedin'),
-				'method' => 'gotoLogin',
+				'method' => array(&$this, 'gotoLogin'),
 			),
 			'message' => array(
 				'label' => __('Display a message', 'loggedin'),
-				'method' => 'displayMessage',
+				'method' => array(&$this, 'displayMessage'),
 			),
 			'fallback' => array(
 				'label' => __('Display theme fallback file', 'loggedin'),
-				'method' => 'gotoThemeFallback',
+				'method' => array(&$this, 'gotoThemeFallback'),
 			),
 		);
+
+		$actions = apply_filters($this->slugPrefix('actions'), $actions);
+
+		return $actions;
 	}
 
 	public function install() {
@@ -122,7 +126,7 @@ class LoggedIn
 			$method = $actions[$action]['method'];
 		}
 
-		return array(&$this, $method);
+		return $method;
 	}
 
 	protected function urlIsValid($request_url = null)
